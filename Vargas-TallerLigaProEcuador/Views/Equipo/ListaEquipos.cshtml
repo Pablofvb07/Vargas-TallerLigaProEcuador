@@ -61,9 +61,8 @@
                 @Html.DisplayFor(modelItem => item.Puntos)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }, new { @class = "btn btn-success"}) |
-                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }, new { @class = "btn btn-info" }) |
-                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ }, new { @class = "btn btn-danger" })
+                @Html.ActionLink("Edit", "Edit", new { id=item.Id }, new { @class = "btn btn-success"}) |
+                  
             </td>
         </tr>
 }

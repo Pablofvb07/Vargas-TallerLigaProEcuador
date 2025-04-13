@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Vargas_TallerLigaProEcuador.Models;
+using Vargas_TallerLigaProEcuador.Repositories;
 
 namespace Vargas_TallerLigaProEcuador.Controllers
 {
@@ -7,29 +8,16 @@ namespace Vargas_TallerLigaProEcuador.Controllers
     {
         public IActionResult ListaEquipos()
         {
-            List<Equipo> equipos = new List<Equipo>();
-            Equipo ldu = new Equipo()
-            {
-                Id = 1,
-                NombreEquipo="Ldu",
-                PartidosJugados=10,
-                PartidosGanados=10,
-                PartidosEmpatados=0,
-                PartidosPerdidos=0,
-            };
-            equipos.Add(ldu);
-            Equipo bsc = new Equipo()
-            {
-                Id = 2,
-                NombreEquipo = "Bsc",
-                PartidosJugados = 10,
-                PartidosGanados = 1,
-                PartidosEmpatados = 1,
-                PartidosPerdidos = 8,
-            };
-            equipos.Add(bsc);
+            EquipoRepository repository = new EquipoRepository();
+            var equipos = repository.DevuelveListadoEquipos();
 
             return View(equipos);
+        }
+        public IActionResult Edit(int id)
+        {
+            EquipoRepository repository = new EquipoRepository();
+            var equipo = repository.DevuelveInfoEquipo(id);
+            return View(equipo);
         }
     }
 }
