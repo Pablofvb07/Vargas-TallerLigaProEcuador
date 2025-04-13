@@ -25,7 +25,7 @@ namespace Vargas_TallerLigaProEcuador.Models
         {
             get
             {
-                int puntos = PartidosGanados*3 + PartidosEmpatados*1;
+                int puntos = PartidosGanados * 3 + PartidosEmpatados * 1;
                 return puntos;
             }
         }

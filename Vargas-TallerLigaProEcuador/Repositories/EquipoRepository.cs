@@ -18,7 +18,7 @@ namespace Vargas_TallerLigaProEcuador.Repositories
         public Equipo DevuelveInfoEquipo(int Id)
         {
             var equipos = DevuelveListadoEquipos();
-            var equipo = equipos.Where(item => item.Id== Id).First();
+            var equipo = equipos.Where(item => item.Id == Id).First();
             return equipo;
         }
 
