@@ -10,7 +10,8 @@ namespace Vargas_TallerLigaProEcuador.Models
         [MaxLength(100)]
         [DisplayName("Nombre de Equipo")]
         [Required]
-        public string Nombre { get; set; }
+        public string NombreEquipo
+        { get; set; }
         [Range(0, 20)]
         public int PartidosJugados { get; set; }
         [Range(0, 20)]
