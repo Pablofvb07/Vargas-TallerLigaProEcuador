@@ -5,53 +5,56 @@ namespace Vargas_TallerLigaProEcuador.Repositories
 {
     public class EquipoRepository : IEquipoRepository
     {
-        public bool ActualizarEquipo()
+        private static List<Equipo> equipos = new List<Equipo>
+    {
+        new Equipo
         {
-            throw new NotImplementedException();
+            Id = 1,
+            NombreEquipo = "Ldu",
+            PartidosJugados = 10,
+            PartidosGanados = 10,
+            PartidosEmpatados = 0,
+            PartidosPerdidos = 0,
+            ImagenUrl = "https://upload.wikimedia.org/wikipedia/commons/5/50/LOGOS_5TA._ESTRELLA_I.png"
+        },
+        new Equipo
+        {
+            Id = 2,
+            NombreEquipo = "Bsc",
+            PartidosJugados = 10,
+            PartidosGanados = 1,
+            PartidosEmpatados = 1,
+            PartidosPerdidos = 8,
+            ImagenUrl = "https://upload.wikimedia.org/wikipedia/commons/6/6a/Barcelona_Sporting_Club_Logo.png"
         }
+    };
 
-        public bool CrearEquipo()
-        {
-            throw new NotImplementedException();
-        }
+        public bool ActualizarEquipo(Equipo equipo)
 
-        public Equipo DevuelveInfoEquipo(int Id)
         {
-            var equipos = DevuelveListadoEquipos();
-            var equipo = equipos.Where(item => item.Id == Id).First();
-            return equipo;
-        }
-
-        public List<Equipo> DevuelveListadoEquipos()
-        {
-            List<Equipo> equipos = new List<Equipo>();
-            Equipo ldu = new Equipo()
+            /*LINEAS DE CODIGO GENERADAS POR CHATGPT*/
+            var equipoExistente = equipos.FirstOrDefault(e => e.Id == equipo.Id);
+            if (equipoExistente != null)
             {
-                Id = 1,
-                NombreEquipo = "Ldu",
-                PartidosJugados = 10,
-                PartidosGanados = 10,
-                PartidosEmpatados = 0,
-                PartidosPerdidos = 0,
-            };
-            equipos.Add(ldu);
-            Equipo bsc = new Equipo()
-            {
-                Id = 2,
-                NombreEquipo = "Bsc",
-                PartidosJugados = 10,
-                PartidosGanados = 1,
-                PartidosEmpatados = 1,
-                PartidosPerdidos = 8,
-            };
-            equipos.Add(bsc);
+                equipoExistente.NombreEquipo = equipo.NombreEquipo;
+                equipoExistente.PartidosJugados = equipo.PartidosJugados;
+                equipoExistente.PartidosGanados = equipo.PartidosGanados;
+                equipoExistente.PartidosEmpatados = equipo.PartidosEmpatados;
+                equipoExistente.PartidosPerdidos = equipo.PartidosPerdidos;
+                equipoExistente.ImagenUrl = equipo.ImagenUrl;
 
-            return equipos;
+                return true;
+            }
+            return false;
         }
 
-        public bool EliminarEquipo()
-        {
-            throw new NotImplementedException();
-        }
+        public List<Equipo> DevuelveListadoEquipos() => equipos;
+
+        public Equipo DevuelveInfoEquipo(int id) => equipos.FirstOrDefault(e => e.Id == id);
+
+        public bool CrearEquipo() => throw new NotImplementedException();
+
+        public bool EliminarEquipo() => throw new NotImplementedException();
     }
+
 }

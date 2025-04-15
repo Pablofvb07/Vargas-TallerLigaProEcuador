@@ -8,7 +8,7 @@ namespace Vargas_TallerLigaProEcuador.Interfaces
         List<Equipo> DevuelveListadoEquipos();
         Equipo DevuelveInfoEquipo(int Id);
         bool CrearEquipo();
-        bool ActualizarEquipo();
+        bool ActualizarEquipo(Equipo equipo);
         bool EliminarEquipo();
 
     }

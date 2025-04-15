@@ -36,6 +36,7 @@
 			<th></th>
 		</tr>
 	</thead>
+	<!--Se realizo Cambios en el foreach con la ayuda de ChatGPT-->
 	<tbody>
 		@foreach (var item in Model)
 		{
@@ -44,7 +45,11 @@
 					@Html.DisplayFor(modelItem => item.Id)
 				</td>
 				<td>
-					@Html.DisplayFor(modelItem => item.NombreEquipo)
+					@if (!string.IsNullOrEmpty(item.ImagenUrl))
+					{
+						<img src="@item.ImagenUrl" alt="Logo @item.NombreEquipo" style="width: 40px; height: auto; margin-right: 10px;" />
+					}
+					@item.NombreEquipo
 				</td>
 				<td>
 					@Html.DisplayFor(modelItem => item.PartidosJugados)
@@ -53,7 +58,7 @@
 					@Html.DisplayFor(modelItem => item.PartidosGanados)
 				</td>
 				<td>
-					@Html.DisplayFor(modelItem => item.PartidosEmpatados)	
+					@Html.DisplayFor(modelItem => item.PartidosEmpatados)
 				</td>
 				<td>
 					@Html.DisplayFor(modelItem => item.PartidosPerdidos)
@@ -62,10 +67,10 @@
 					@Html.DisplayFor(modelItem => item.Puntos)
 				</td>
 				<td>
-					@Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-success" }) |
-
+					@Html.ActionLink("Editar", "Edit", new { id = item.Id }, new { @class = "btn btn-success" }) |
 				</td>
 			</tr>
 		}
 	</tbody>
+
 </table>

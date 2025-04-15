@@ -3,14 +3,14 @@
 @{
 	ViewData["Title"] = "Edit";
 }
-
+<!--Se realizo Cambios con la Ayuda de ChatGPT-->
 <h1>Edit</h1>
 
 <h4>Equipo</h4>
 <hr />
 <div class="row">
 	<div class="col-md-4">
-		<form asp-action="Edit">
+		<form asp-action="Edit" method="post">
 			<div asp-validation-summary="ModelOnly" class="text-danger"></div>
 			<div class="form-group">
 				<label asp-for="Id" class="control-label"></label>
@@ -44,9 +44,10 @@
 			</div>
 			<div class="form-group">
 				<label asp-for="Puntos" class="control-label"></label>
-				<input asp-for="Puntos" class="form-control" />
-				<span asp-validation-for="Puntos" class="text-danger"></span>
+				<p class="form-control-plaintext">@Model.Puntos</p>
 			</div>
+			<input type="hidden" asp-for="ImagenUrl" />
+
 			<div class="form-group">
 				<input type="submit" value="Save" class="btn btn-primary" />
 			</div>
@@ -57,6 +58,15 @@
 <div>
 	<a asp-action="Index">Back to List</a>
 </div>
+<!--Codigo obtenido de ChatGpt-->
+@if (!string.IsNullOrEmpty(Model.ImagenUrl))
+{
+	<div class="mb-3">
+		<label><strong>Logo del equipo:</strong></label><br />
+		<img src="@Model.ImagenUrl" alt="Logo @Model.NombreEquipo" style="max-width: 150px; height: auto;" />
+	</div>
+}
+
 
 @section Scripts {
 	@{

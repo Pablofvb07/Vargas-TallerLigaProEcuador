@@ -19,5 +19,21 @@ namespace Vargas_TallerLigaProEcuador.Controllers
             var equipo = repository.DevuelveInfoEquipo(id);
             return View(equipo);
         }
+        /*Codigo Generado por ChatGPT*/
+        [HttpPost]
+        public IActionResult Edit(Equipo equipo)
+        {
+            EquipoRepository repository = new EquipoRepository();
+            bool actualizado = repository.ActualizarEquipo(equipo);
+
+            if (actualizado)
+            {
+                return RedirectToAction("ListaEquipos");
+            }
+
+            // Si no se pudo actualizar, se vuelve a mostrar la vista con el modelo original
+            return View(equipo);
+        }
+
     }
 }
