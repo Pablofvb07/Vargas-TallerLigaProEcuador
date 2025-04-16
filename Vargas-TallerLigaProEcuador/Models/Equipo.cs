@@ -29,10 +29,11 @@ namespace Vargas_TallerLigaProEcuador.Models
                 return puntos;
             }
         }
-        /*Linea de codigo generada por Chatgpt */
+        /*Lineas de codigo generada por Chatgpt */
         [DisplayName("Logo del Equipo")]
         public string ImagenUrl { get; set; }
+    
+    public string Descripcion { get; set; }
     }
-
 }
 

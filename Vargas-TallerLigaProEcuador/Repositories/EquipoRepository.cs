@@ -15,7 +15,8 @@ namespace Vargas_TallerLigaProEcuador.Repositories
             PartidosGanados = 10,
             PartidosEmpatados = 0,
             PartidosPerdidos = 0,
-            ImagenUrl = "https://upload.wikimedia.org/wikipedia/commons/5/50/LOGOS_5TA._ESTRELLA_I.png"
+            ImagenUrl = "https://upload.wikimedia.org/wikipedia/commons/5/50/LOGOS_5TA._ESTRELLA_I.png",
+            Descripcion = "Liga Deportiva Universitaria es uno de los equipos más grandes de Ecuador, Vigente campeón de la liga pro."
         },
         new Equipo
         {
@@ -25,7 +26,9 @@ namespace Vargas_TallerLigaProEcuador.Repositories
             PartidosGanados = 1,
             PartidosEmpatados = 1,
             PartidosPerdidos = 8,
-            ImagenUrl = "https://upload.wikimedia.org/wikipedia/commons/6/6a/Barcelona_Sporting_Club_Logo.png"
+            ImagenUrl = "https://upload.wikimedia.org/wikipedia/commons/6/6a/Barcelona_Sporting_Club_Logo.png",
+            Descripcion = "Barcelona SC es uno de los clubes más populares del país."
+
         }
     };
 
@@ -42,6 +45,7 @@ namespace Vargas_TallerLigaProEcuador.Repositories
                 equipoExistente.PartidosEmpatados = equipo.PartidosEmpatados;
                 equipoExistente.PartidosPerdidos = equipo.PartidosPerdidos;
                 equipoExistente.ImagenUrl = equipo.ImagenUrl;
+                equipoExistente.Descripcion = equipo.Descripcion;
 
                 return true;
             }
